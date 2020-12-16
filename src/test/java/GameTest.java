@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 public class GameTest {
 
     @Test
@@ -16,4 +18,20 @@ public class GameTest {
         int wounds = survivor.getWounds();
         Assertions.assertEquals(0, wounds);
     }
+
+    @Test
+    public void checkSurvivorIsAlive() {
+        Survivor survivor = new Survivor("Colonel Sanders");
+        survivor.addWound(2);
+        assertFalse(survivor.isAlive());
+    }
+
+    @Test
+    public void checkSurvivorIsAlive() {
+        Survivor survivor = new Survivor("Colonel Sanders");
+        survivor.addWound(2);
+        assertFalse(survivor.isAlive());
+    }
+
+
 }
