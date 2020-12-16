@@ -46,8 +46,18 @@ public class GameTest {
     }
 
     @Test
-    private void numberOfItemsInHand_Default_NoItems() {
+    public void numberOfItems_Default_NoItems() {
         Survivor survivor = new Survivor("Colonel Sanders");
         assertEquals(0, survivor.getItems());
     }
+
+    @Test
+    public void numberOfItems_MaxNoItems(){
+        Survivor survivor = new Survivor("Andy");
+
+        survivor.addItems("Item", 6);
+        survivor.getItems()
+        assertEquals(2, sur);
+    }
+
 }
