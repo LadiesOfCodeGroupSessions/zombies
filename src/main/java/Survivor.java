@@ -30,4 +30,8 @@ public class Survivor {
     public void addWound(int wound) {
         this.wounds += wound;
     }
+
+    public int getActionsPerTurn() {
+        return 3;
+    }
 }
