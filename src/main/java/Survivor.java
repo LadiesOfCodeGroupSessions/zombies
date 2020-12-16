@@ -40,6 +40,6 @@ public class Survivor {
     }
 
     public int getItems(){
-        return this.items.size()l;
+        return this.items.size();
     }
 }

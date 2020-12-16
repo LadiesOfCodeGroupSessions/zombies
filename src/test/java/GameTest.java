@@ -56,8 +56,7 @@ public class GameTest {
         Survivor survivor = new Survivor("Andy");
 
         survivor.addItems("Item", 6);
-        survivor.getItems()
-        assertEquals(2, sur);
+        assertEquals(5, survivor.getItems());
     }
 
 }
