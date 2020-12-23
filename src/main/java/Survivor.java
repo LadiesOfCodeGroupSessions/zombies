@@ -42,4 +42,13 @@ public class Survivor {
     public int getItems(){
         return this.items.size();
     }
+
+    public void addEquipment(Equipment baseballBat) {
+    }
+
+    public List<Equipment> getEquipmentInHand() {
+    }
+
+    public List<Equipment> getReservedEquipment() {
+    }
 }

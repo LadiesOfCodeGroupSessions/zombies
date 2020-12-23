@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -74,7 +76,7 @@ public class GameTest {
         assertEquals(2, inHandEquipment.size());
         assertEquals(3, inReserveEquipment.size());
 
-        assertEquals();
+        assertEquals(1, inHandEquipment.stream().filter(x -> x.getName()=="Baseball Bat").size());
     }
 
 }

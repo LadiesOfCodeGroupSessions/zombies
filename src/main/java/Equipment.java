@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class Equipment {
+public class Equipment {
+    public Equipment(String baseball_bat) {
+
+    }
 }
