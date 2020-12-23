@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Survivor {
 
@@ -6,6 +7,9 @@ public class Survivor {
     private int wounds;
     private boolean isAlive;
     private ArrayList<String> items;
+    private List<Equipment> inHandEquipment = new ArrayList<>();
+    private List<Equipment> reservedEquipment = new ArrayList<>();
+
 
     public Survivor(String name) {
         this.name = name;
@@ -39,16 +43,20 @@ public class Survivor {
         return 3;
     }
 
-    public int getItems(){
-        return this.items.size();
-    }
-
-    public void addEquipment(Equipment baseballBat) {
+    public void addEquipment(Equipment equipment) {
+        if((inHandEquipment.size() + reservedEquipment.size()) < 5){
+            if(inHandEquipment.size() < 2)
+                inHandEquipment.add(equipment);
+            else
+                reservedEquipment.add(equipment);
+        }
     }
 
     public List<Equipment> getEquipmentInHand() {
+        return inHandEquipment;
     }
 
     public List<Equipment> getReservedEquipment() {
+        return reservedEquipment;
     }
 }

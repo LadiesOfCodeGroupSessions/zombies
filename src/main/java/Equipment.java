@@ -1,5 +1,11 @@
 public class Equipment {
-    public Equipment(String baseball_bat) {
+    String name;
 
+    public Equipment(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

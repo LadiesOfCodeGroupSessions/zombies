@@ -51,15 +51,16 @@ public class GameTest {
     @Test
     public void numberOfItems_Default_NoItems() {
         Survivor survivor = new Survivor("Colonel Sanders");
-        assertEquals(0, survivor.getItems());
+        assertEquals(0, survivor.getEquipmentInHand().size());
+        assertEquals(0, survivor.getReservedEquipment().size());
     }
 
     @Test
-    public void carryEquipment(){
+    public void carryEquipment() {
         Survivor survivor = new Survivor("Andy");
 
         Equipment baseballBat = new Equipment("Baseball Bat");
-        Equipment fryingPan = new Equipment("Frying pan");
+        Equipment fryingPan = new Equipment("Frying Pan");
         Equipment katana = new Equipment("Katana");
         Equipment pistol = new Equipment("Pistol");
         Equipment bottledWater = new Equipment("Bottled Water");
@@ -76,7 +77,35 @@ public class GameTest {
         assertEquals(2, inHandEquipment.size());
         assertEquals(3, inReserveEquipment.size());
 
-        assertEquals(1, inHandEquipment.stream().filter(x -> x.getName()=="Baseball Bat").size());
+        assertEquals(1, inHandEquipment.stream().filter(x -> x.getName() == "Baseball Bat").count());
+        assertEquals(1, inHandEquipment.stream().filter(x -> x.getName() == "Frying Pan").count());
+        assertEquals(1, inReserveEquipment.stream().filter(x -> x.getName() == "Katana").count());
+        assertEquals(1, inReserveEquipment.stream().filter(x -> x.getName() == "Pistol").count());
+        assertEquals(1, inReserveEquipment.stream().filter(x -> x.getName() == "Bottled Water").count());
     }
 
+    @Test
+    public void doNotGoOverMaxEquipmentOf5() {
+        Survivor survivor = new Survivor("Andy");
+
+        Equipment baseballBat = new Equipment("Baseball Bat");
+        Equipment fryingPan = new Equipment("Frying Pan");
+        Equipment katana = new Equipment("Katana");
+        Equipment pistol = new Equipment("Pistol");
+        Equipment bottledWater = new Equipment("Bottled Water");
+        Equipment molotov = new Equipment("Molotov");
+
+        survivor.addEquipment(baseballBat);
+        survivor.addEquipment(fryingPan);
+        survivor.addEquipment(katana);
+        survivor.addEquipment(pistol);
+        survivor.addEquipment(bottledWater);
+        survivor.addEquipment(molotov);
+
+        List<Equipment> inHandEquipment = survivor.getEquipmentInHand();
+        List<Equipment> inReserveEquipment = survivor.getReservedEquipment();
+
+        assertEquals(2, inHandEquipment.size());
+        assertEquals(3, inReserveEquipment.size());
+    }
 }
