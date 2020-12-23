@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameTest {
 
@@ -52,11 +53,28 @@ public class GameTest {
     }
 
     @Test
-    public void numberOfItems_MaxNoItems(){
+    public void carryEquipment(){
         Survivor survivor = new Survivor("Andy");
 
-        survivor.addItems("Item", 6);
-        assertEquals(5, survivor.getItems());
+        Equipment baseballBat = new Equipment("Baseball Bat");
+        Equipment fryingPan = new Equipment("Frying pan");
+        Equipment katana = new Equipment("Katana");
+        Equipment pistol = new Equipment("Pistol");
+        Equipment bottledWater = new Equipment("Bottled Water");
+
+        survivor.addEquipment(baseballBat);
+        survivor.addEquipment(fryingPan);
+        survivor.addEquipment(katana);
+        survivor.addEquipment(pistol);
+        survivor.addEquipment(bottledWater);
+
+        List<Equipment> inHandEquipment = survivor.getEquipmentInHand();
+        List<Equipment> inReserveEquipment = survivor.getReservedEquipment();
+
+        assertEquals(2, inHandEquipment.size());
+        assertEquals(3, inReserveEquipment.size());
+
+        assertEquals();
     }
 
 }
