@@ -10,6 +10,7 @@ public class Survivor {
     private List<Equipment> inHandEquipment = new ArrayList<>();
     private List<Equipment> reservedEquipment = new ArrayList<>();
     private int sizeOfAllowedInHandEquipment = 2;
+    private int sizeOfAllowedReservedEquipment = 3;
 
 
     public Survivor(String name) {
@@ -39,9 +40,14 @@ public class Survivor {
     public void addWound(int wound) {
         this.wounds += wound;
 
-        sizeOfAllowedInHandEquipment = 1;
-
-        inHandEquipment.remove(0);
+        if(wound> sizeOfAllowedInHandEquipment) {
+        	  sizeOfAllowedInHandEquipment = 0;
+        }
+        else 
+        	sizeOfAllowedInHandEquipment -= wound;
+        
+        if(inHandEquipment.size()>0)
+        	inHandEquipment.remove(0);
     }
 
     public int getActionsPerTurn() {

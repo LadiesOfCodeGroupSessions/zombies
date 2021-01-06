@@ -130,10 +130,21 @@ public class GameTest {
         Equipment baseballBat = new Equipment("Baseball Bat");
         Equipment fryingPan = new Equipment("Frying Pan");
         Equipment katana = new Equipment("Katana");
+        Equipment pistol = new Equipment("Pistol");
         survivor.addEquipment(baseballBat);
         survivor.addEquipment(fryingPan);
         survivor.addEquipment(katana);
+        survivor.addEquipment(pistol);
 
         survivor.addWound(3);
+        
+        List<Equipment> inHandEquipment = survivor.getEquipmentInHand();
+        assertEquals(0, inHandEquipment.size());
+        
+        List<Equipment> reservedEquipment =      survivor.getReservedEquipment();
+        assertEquals(1, reservedEquipment.size());
+        
+        
+        
     }
 }
