@@ -47,12 +47,19 @@ public class Survivor {
         else 
         	sizeOfAllowedInHandEquipment -= wound;
         
-        if(inHandEquipment.size()>0)
-        {
-            for(int i = 0; i<wound ; i++){
+        for (int i = 0; i<wound; i++) {
+
+            if(inHandEquipment.size()>0)
+            {
                 inHandEquipment.remove(0);
-            }}
+
+            } else {
+                if(reservedEquipment.size()>0) {
+                    reservedEquipment.remove(0);
+                }
+            }
         }
+
 
     }
 

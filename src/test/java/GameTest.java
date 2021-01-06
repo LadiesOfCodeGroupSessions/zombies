@@ -143,8 +143,7 @@ public class GameTest {
         
         List<Equipment> reservedEquipment =      survivor.getReservedEquipment();
         assertEquals(1, reservedEquipment.size());
-        
-        
-        
     }
+
+
 }
