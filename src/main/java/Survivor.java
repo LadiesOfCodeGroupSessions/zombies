@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Survivor {
 
@@ -84,7 +86,15 @@ public class Survivor {
         return reservedEquipment;
     }
 
-    public void swapEquipment(Equipment fryingPan, Equipment molotov) {
-        if (inHandEquipment.stream())
+    public void swapEquipment(Equipment oldEquipment, Equipment newEquipment) {
+        List<Equipment> matchingHandList = inHandEquipment.stream()
+                .filter(x -> x.getName() == oldEquipment.getName())
+                .collect(Collectors.toList());
+
+        if(matchingHandList.size() > 0) {
+            inHandEquipment.remove(matchingHandList.get(0));
+            inHandEquipment.add(newEquipment);
+        }
+
     }
 }
