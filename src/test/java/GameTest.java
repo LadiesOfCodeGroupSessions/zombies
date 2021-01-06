@@ -108,4 +108,32 @@ public class GameTest {
         assertEquals(2, inHandEquipment.size());
         assertEquals(3, inReserveEquipment.size());
     }
+
+    @Test
+    public void woundReducesEquipmentSize(){
+        Survivor survivor = new Survivor("Sally");
+        Equipment baseballBat = new Equipment("Baseball Bat");
+        Equipment fryingPan = new Equipment("Frying Pan");
+        survivor.addEquipment(baseballBat);
+        survivor.addEquipment(fryingPan);
+
+        survivor.addWound(1);
+
+        List<Equipment> inHandEquipment = survivor.getEquipmentInHand();
+
+        assertEquals(1, inHandEquipment.size());
+    }
+
+    @Test
+    public void woundReducesEquipmentBy3(){
+        Survivor survivor = new Survivor("Sally");
+        Equipment baseballBat = new Equipment("Baseball Bat");
+        Equipment fryingPan = new Equipment("Frying Pan");
+        Equipment katana = new Equipment("Katana");
+        survivor.addEquipment(baseballBat);
+        survivor.addEquipment(fryingPan);
+        survivor.addEquipment(katana);
+
+        survivor.addWound(3);
+    }
 }
