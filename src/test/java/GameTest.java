@@ -85,7 +85,7 @@ public class GameTest {
     }
 
     @Test
-    public void doNotGoOverMaxEquipmentOf5() {
+    public void swapEquipment() {
         Survivor survivor = new Survivor("Andy");
 
         Equipment baseballBat = new Equipment("Baseball Bat");
@@ -100,10 +100,14 @@ public class GameTest {
         survivor.addEquipment(katana);
         survivor.addEquipment(pistol);
         survivor.addEquipment(bottledWater);
-        survivor.addEquipment(molotov);
+        survivor.swapEquipment(fryingPan, molotov);
 
         List<Equipment> inHandEquipment = survivor.getEquipmentInHand();
         List<Equipment> inReserveEquipment = survivor.getReservedEquipment();
+
+        assertEquals(1, inHandEquipment.stream().filter(x -> x.getName() == "Baseball Bat").count());
+        assertEquals(1, inHandEquipment.stream().filter(x -> x.getName() == "Molotov").count());
+        assertEquals(0, inHandEquipment.stream().filter(x -> x.getName() == "Frying Pan").count());
 
         assertEquals(2, inHandEquipment.size());
         assertEquals(3, inReserveEquipment.size());

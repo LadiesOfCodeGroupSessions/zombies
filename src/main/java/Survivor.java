@@ -83,4 +83,8 @@ public class Survivor {
     public List<Equipment> getReservedEquipment() {
         return reservedEquipment;
     }
+
+    public void swapEquipment(Equipment fryingPan, Equipment molotov) {
+        if (inHandEquipment.stream())
+    }
 }
