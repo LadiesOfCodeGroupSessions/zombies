@@ -42,12 +42,18 @@ public class Survivor {
 
         if(wound> sizeOfAllowedInHandEquipment) {
         	  sizeOfAllowedInHandEquipment = 0;
+        	  sizeOfAllowedReservedEquipment = (wound -2);
         }
         else 
         	sizeOfAllowedInHandEquipment -= wound;
         
         if(inHandEquipment.size()>0)
-        	inHandEquipment.remove(0);
+        {
+            for(int i = 0; i<wound ; i++){
+                inHandEquipment.remove(0);
+            }}
+        }
+
     }
 
     public int getActionsPerTurn() {
