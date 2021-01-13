@@ -14,7 +14,6 @@ public class Survivor {
     private int sizeOfAllowedInHandEquipment = 2;
     private int sizeOfAllowedReservedEquipment = 3;
 
-
     public Survivor(String name) {
         this.name = name;
         this.isAlive = true;

@@ -118,6 +118,7 @@ public class GameTest {
     public void swapEquipmentInReserve(){
         Survivor survivor = new Survivor("Andy");
 
+
         // create equipment
         Equipment baseballBat = new Equipment("Baseball Bat");
         Equipment fryingPan = new Equipment("Frying Pan");
@@ -135,6 +136,10 @@ public class GameTest {
 
         // swap equipment in reserve
         survivor.swapEquipment(pistol, molotov);
+
+        List<Equipment> inReserveEquipment = survivor.getReservedEquipment();
+        assertEquals(1, inReserveEquipment.stream().filter(x -> x.getName() == "Molotov").count());
+        assertEquals(0, inReserveEquipment.stream().filter(x -> x.getName() == "Pistol").count());
 
         assertEquals(2, survivor.getEquipmentInHand().size());
         assertEquals(3, survivor.getReservedEquipment().size());
