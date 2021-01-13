@@ -91,9 +91,16 @@ public class Survivor {
                 .filter(x -> x.getName() == oldEquipment.getName())
                 .collect(Collectors.toList());
 
+        List<Equipment> matchingReserveList = reservedEquipment.stream()
+                .filter(x -> x.getName() == oldEquipment.getName())
+                .collect(Collectors.toList());
+
         if(matchingHandList.size() > 0) {
             inHandEquipment.remove(matchingHandList.get(0));
             inHandEquipment.add(newEquipment);
+        } else if (matchingReserveList.size() > 0){
+            reservedEquipment.remove(matchingReserveList.get(0));
+            reservedEquipment.add(newEquipment);
         }
 
     }

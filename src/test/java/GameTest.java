@@ -85,7 +85,7 @@ public class GameTest {
     }
 
     @Test
-    public void swapEquipment() {
+    public void swapEquipmentInHand() {
         Survivor survivor = new Survivor("Andy");
 
         Equipment baseballBat = new Equipment("Baseball Bat");
@@ -102,6 +102,7 @@ public class GameTest {
         survivor.addEquipment(bottledWater);
         survivor.swapEquipment(fryingPan, molotov);
 
+
         List<Equipment> inHandEquipment = survivor.getEquipmentInHand();
         List<Equipment> inReserveEquipment = survivor.getReservedEquipment();
 
@@ -111,6 +112,32 @@ public class GameTest {
 
         assertEquals(2, inHandEquipment.size());
         assertEquals(3, inReserveEquipment.size());
+    }
+
+    @Test
+    public void swapEquipmentInReserve(){
+        Survivor survivor = new Survivor("Andy");
+
+        // create equipment
+        Equipment baseballBat = new Equipment("Baseball Bat");
+        Equipment fryingPan = new Equipment("Frying Pan");
+        Equipment katana = new Equipment("Katana");
+        Equipment pistol = new Equipment("Pistol");
+        Equipment bottledWater = new Equipment("Bottled Water");
+        Equipment molotov = new Equipment("Molotov");
+
+        // add them to survivor
+        survivor.addEquipment(baseballBat);
+        survivor.addEquipment(fryingPan);
+        survivor.addEquipment(katana);
+        survivor.addEquipment(pistol);
+        survivor.addEquipment(bottledWater);
+
+        // swap equipment in reserve
+        survivor.swapEquipment(pistol, molotov);
+
+        assertEquals(2, survivor.getEquipmentInHand().size());
+        assertEquals(3, survivor.getReservedEquipment().size());
     }
 
     @Test
