@@ -21,10 +21,10 @@ public class GameFuncTest {
         Game game = new Game();
         Survivor survivor = new Survivor("Andy");
 
-        game.addSurvivor(survivor);
+        game.addSurvivorToSet(survivor.getName());
 
-
-        assertEquals();
+        assertEquals(1, game.getSurvivors().size());
+        assertTrue(game.getSurvivors().contains("Andy"));
     }
 
 }
