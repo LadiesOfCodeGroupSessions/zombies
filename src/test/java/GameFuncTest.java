@@ -17,7 +17,7 @@ public class GameFuncTest {
     }
 
     @Test
-    public void addSurvivor(){
+    public void addSurvivor() {
         Game game = new Game();
         Survivor survivor = new Survivor("Andy");
 
