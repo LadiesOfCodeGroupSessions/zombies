@@ -16,4 +16,15 @@ public class GameFuncTest {
         assertEquals(0, numberOfSurvivors);
     }
 
+    @Test
+    public void addSurvivor(){
+        Game game = new Game();
+        Survivor survivor = new Survivor("Andy");
+
+        game.addSurvivor(survivor);
+
+
+        assertEquals();
+    }
+
 }
